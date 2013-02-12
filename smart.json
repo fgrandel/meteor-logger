@@ -2,8 +2,8 @@
   "name": "logger",
   "description": "A simple logger that works on client and server, e.g. Meteor.log.warning(...).",
   "homepage": "https://github.com/jerico-dev/meteor-logger",
-  "author": "Florian Grandel(mailto:jerico.dev@gmail.com)",
-  "version": "0.0.5",
+  "author": "Florian Grandel (https://github.com/jerico-dev)",
+  "version": "0.0.6",
   "git": "https://github.com/jerico-dev/meteor-logger.git",
   "packages": { }
 }
