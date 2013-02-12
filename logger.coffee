@@ -1,19 +1,23 @@
-Meteor.log =
-  message: (message, level, params={}) ->
-    if __? and _.isFunction(__)
-      message = __("services.log.#{level}", msg: __(message, params))
-    else
-      message = level + ': ' + message
-    Meteor._debug message
+Meteor.log = (message, params={}, level='info') ->
+  if _.isString(params)
+    level = params
+    params = {}
 
+  if __? and _.isFunction(__)
+    message = __("services.log.#{level}", msg: __(message, params))
+  else
+    message = level + ': ' + message
+  Meteor._debug message
+
+_.extend Meteor.log,
   error: (message, params={}) ->
-    @message message, 'error', params
+    @ message, params, 'error'
 
   warning: (message, params={}) ->
-    @message message, 'warning', params
+    @ message, params, 'warning'
 
   info: (message, params={}) ->
-    @message message, 'info', params
+    @ message, params, 'info'
 
   throw: (message, params={}) ->
     throw __(message, params)
