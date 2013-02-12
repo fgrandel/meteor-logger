@@ -1,5 +1,5 @@
-Meteor Internationalization (i18n) Library
-==========================================
+Meteor Logger
+=============
 
 Installation
 ------------
@@ -22,6 +22,7 @@ Meteor.log.info('some message');
 Meteor.log.warning('...');
 Meteor.log.error('...');
 Meteor.log.message('...');
+Meteor.log.throw('...'); // Will throw an exception.
 ```
 
 You can also use the shortcuts
@@ -42,6 +43,7 @@ All the following are valid calls to the logger API:
 
 ``` javascript
 Meteor.log.info('someMessageId', {param: '...'});
+Meteor.log.throw('someMessageId', {param: '...'});
 Meteor.log('someMessageId', {param: '...'});
 Meteor.log('someMessageId', {param: '...'}, 'warning');
 Meteor.log('someMessageId', 'warning');
