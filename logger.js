@@ -45,7 +45,7 @@
       if (params == null) {
         params = {};
       }
-      throw __(message, params);
+      throw new Error(__(message, params));
     }
   });
 

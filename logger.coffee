@@ -20,7 +20,7 @@ _.extend Meteor.log,
     @ message, params, 'info'
 
   throw: (message, params={}) ->
-    throw __(message, params)
+    throw new Error(__(message, params))
 
 if Meteor.i18nMessages?
   Meteor.i18nMessages.log =

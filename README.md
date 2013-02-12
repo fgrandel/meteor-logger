@@ -52,7 +52,7 @@ Meteor.log('someMessageId', 'warning');
 See the i18n package README for further info about message IDs, translation parameters, etc.
 
 
-Questions
----------
+Questions and Feature Requests
+------------------------------
 
-Please write to jerico.dev@gmail.com.
+If you have feature requests or other feedback please write to jerico.dev@gmail.com.
