@@ -49,20 +49,22 @@
     }
   });
 
-  if (Meteor.i18nMessages != null) {
-    Meteor.i18nMessages.log = {
-      error: {
-        en: 'Error: {{msg}}',
-        de: 'Fehler: {{msg}}',
-        pt: 'Erro: {{msg}}'
-      },
-      info: 'Info: {{msg}}',
-      warning: {
-        en: 'Warning: {{msg}}',
-        de: 'Vorsicht: {{msg}}',
-        pt: 'Cuidado: {{msg}}'
-      }
-    };
+  if (Meteor.i18nMessages == null) {
+    Meteor.i18nMessages = {};
   }
+
+  Meteor.i18nMessages.log = {
+    error: {
+      en: 'Error: {{msg}}',
+      de: 'Fehler: {{msg}}',
+      pt: 'Erro: {{msg}}'
+    },
+    info: 'Info: {{msg}}',
+    warning: {
+      en: 'Warning: {{msg}}',
+      de: 'Vorsicht: {{msg}}',
+      pt: 'Cuidado: {{msg}}'
+    }
+  };
 
 }).call(this);

@@ -22,14 +22,14 @@ _.extend Meteor.log,
   throw: (message, params={}) ->
     throw new Error(__(message, params))
 
-if Meteor.i18nMessages?
-  Meteor.i18nMessages.log =
-    error:
-      en: 'Error: {{msg}}'
-      de: 'Fehler: {{msg}}'
-      pt: 'Erro: {{msg}}'
-    info: 'Info: {{msg}}'
-    warning:
-      en: 'Warning: {{msg}}'
-      de: 'Vorsicht: {{msg}}'
-      pt: 'Cuidado: {{msg}}'
+Meteor.i18nMessages = {} unless Meteor.i18nMessages?
+Meteor.i18nMessages.log =
+  error:
+    en: 'Error: {{msg}}'
+    de: 'Fehler: {{msg}}'
+    pt: 'Erro: {{msg}}'
+  info: 'Info: {{msg}}'
+  warning:
+    en: 'Warning: {{msg}}'
+    de: 'Vorsicht: {{msg}}'
+    pt: 'Cuidado: {{msg}}'
