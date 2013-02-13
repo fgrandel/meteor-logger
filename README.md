@@ -56,3 +56,9 @@ Questions and Feature Requests
 ------------------------------
 
 If you have feature requests or other feedback please write to jerico.dev@gmail.com.
+
+
+Contributions
+-------------
+
+Contributions are welcome! Just make a pull request and I'll definitely check it out.
