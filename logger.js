@@ -13,7 +13,7 @@
       params = {};
     }
     if ((typeof __ !== "undefined" && __ !== null) && _.isFunction(__)) {
-      message = __("services.log." + level, {
+      message = __("_meteor.logger." + level, {
         msg: __(message, params)
       });
     } else {
@@ -53,17 +53,19 @@
     Meteor.i18nMessages = {};
   }
 
-  Meteor.i18nMessages.log = {
-    error: {
-      en: 'Error: {{msg}}',
-      de: 'Fehler: {{msg}}',
-      pt: 'Erro: {{msg}}'
-    },
-    info: 'Info: {{msg}}',
-    warning: {
-      en: 'Warning: {{msg}}',
-      de: 'Vorsicht: {{msg}}',
-      pt: 'Cuidado: {{msg}}'
+  Meteor.i18nMessages._meteor = {
+    logger: {
+      error: {
+        en: 'Error: {{msg}}',
+        de: 'Fehler: {{msg}}',
+        pt: 'Erro: {{msg}}'
+      },
+      info: 'Info: {{msg}}',
+      warning: {
+        en: 'Warning: {{msg}}',
+        de: 'Vorsicht: {{msg}}',
+        pt: 'Cuidado: {{msg}}'
+      }
     }
   };
 
