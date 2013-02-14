@@ -18,7 +18,8 @@ Usage
 The logger supports the following log levels:
 
 ``` javascript
-Meteor.log.info('some message');
+Meteor.log.debug('some message');
+Meteor.log.info('...');
 Meteor.log.warning('...');
 Meteor.log.error('...');
 Meteor.log.throw('...'); // Will throw an exception.
@@ -35,7 +36,7 @@ You can set the log level like this:
 
 
 ``` javascript
-Meteor.log.setDebugLevel('warn'); // or 'error' or 'info'. 'warn' is the default.
+Meteor.log.setDebugLevel('info'); // or 'error', 'warn' or 'debug'. 'warn' is the default.
 ```
 
 

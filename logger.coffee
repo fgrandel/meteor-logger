@@ -5,7 +5,7 @@ Meteor.log = (message, params = {}, level = 'info') ->
 
   # Check the log level.
   self = Meteor.log
-  levels = ['info', 'warning', 'error']
+  levels = ['debug', 'info', 'warning', 'error']
   if _.indexOf(levels, level) < _.indexOf(levels, self._debugLevel)
     return
 
@@ -26,6 +26,9 @@ _.extend Meteor.log,
   info: (message, params = {}) ->
     @ message, params, 'info'
 
+  debug: (message, params = {}) ->
+    @ message, params, 'debug'
+
   throw: (message, params = {}) ->
     throw new Error(__(message, params))
 
@@ -37,6 +40,7 @@ _.extend Meteor.log,
 Meteor.i18nMessages = {} unless Meteor.i18nMessages?
 Meteor.i18nMessages._meteor = {} unless Meteor.i18nMessages._meteor?
 Meteor.i18nMessages._meteor.logger =
+  debug: 'Debug: {{msg}}'
   error:
     en: 'Error: {{msg}}'
     de: 'Fehler: {{msg}}'
