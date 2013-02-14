@@ -14,7 +14,7 @@
       params = {};
     }
     self = Meteor.log;
-    levels = ['info', 'warning', 'error'];
+    levels = ['debug', 'info', 'warning', 'error'];
     if (_.indexOf(levels, level) < _.indexOf(levels, self._debugLevel)) {
       return;
     }
@@ -47,6 +47,12 @@
       }
       return this(message, params, 'info');
     },
+    debug: function(message, params) {
+      if (params == null) {
+        params = {};
+      }
+      return this(message, params, 'debug');
+    },
     "throw": function(message, params) {
       if (params == null) {
         params = {};
@@ -68,6 +74,7 @@
   }
 
   Meteor.i18nMessages._meteor.logger = {
+    debug: 'Debug: {{msg}}',
     error: {
       en: 'Error: {{msg}}',
       de: 'Fehler: {{msg}}',
