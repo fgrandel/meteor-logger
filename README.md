@@ -21,15 +21,21 @@ The logger supports the following log levels:
 Meteor.log.info('some message');
 Meteor.log.warning('...');
 Meteor.log.error('...');
-Meteor.log.message('...');
 Meteor.log.throw('...'); // Will throw an exception.
 ```
 
-You can also use the shortcuts
+This works, too:
 
 ``` javascript
 Meteor.log('some message'); // Equivalent to Meteor.log.info('some message')
 Meteor.log('some message', 'error'); // Equivalent to Meteor.log.error('some message')
+```
+
+You can set the log level like this:
+
+
+``` javascript
+Meteor.log.setDebugLevel('warn'); // or 'error' or 'info'. 'warn' is the default.
 ```
 
 

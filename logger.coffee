@@ -1,8 +1,15 @@
-Meteor.log = (message, params={}, level='info') ->
+Meteor.log = (message, params = {}, level = 'info') ->
   if _.isString(params)
     level = params
     params = {}
 
+  # Check the log level.
+  self = Meteor.log
+  levels = ['info', 'warning', 'error']
+  if _.indexOf(levels, level) < _.indexOf(levels, self._debugLevel)
+    return
+
+  # Log to the console.
   if __? and _.isFunction(__)
     message = __("_meteor.logger.#{level}", msg: __(message, params))
   else
@@ -10,17 +17,22 @@ Meteor.log = (message, params={}, level='info') ->
   Meteor._debug message
 
 _.extend Meteor.log,
-  error: (message, params={}) ->
+  error: (message, params = {}) ->
     @ message, params, 'error'
 
-  warning: (message, params={}) ->
+  warning: (message, params = {}) ->
     @ message, params, 'warning'
 
-  info: (message, params={}) ->
+  info: (message, params = {}) ->
     @ message, params, 'info'
 
-  throw: (message, params={}) ->
+  throw: (message, params = {}) ->
     throw new Error(__(message, params))
+
+  _debugLevel: 'warning'
+
+  setDebugLevel: (debugLevel) -> @_debugLevel = debugLevel
+
 
 Meteor.i18nMessages = {} unless Meteor.i18nMessages?
 Meteor.i18nMessages._meteor = {} unless Meteor.i18nMessages._meteor?

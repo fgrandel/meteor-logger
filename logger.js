@@ -2,6 +2,7 @@
 (function() {
 
   Meteor.log = function(message, params, level) {
+    var levels, self;
     if (params == null) {
       params = {};
     }
@@ -11,6 +12,11 @@
     if (_.isString(params)) {
       level = params;
       params = {};
+    }
+    self = Meteor.log;
+    levels = ['info', 'warning', 'error'];
+    if (_.indexOf(levels, level) < _.indexOf(levels, self._debugLevel)) {
+      return;
     }
     if ((typeof __ !== "undefined" && __ !== null) && _.isFunction(__)) {
       message = __("_meteor.logger." + level, {
@@ -46,6 +52,10 @@
         params = {};
       }
       throw new Error(__(message, params));
+    },
+    _debugLevel: 'warning',
+    setDebugLevel: function(debugLevel) {
+      return this._debugLevel = debugLevel;
     }
   });
 
